@@ -23,7 +23,7 @@ const MenuItem = ({ title, enable, reference }) => {
       ) : (
         <Menu.Item>
           {({ active }) => (
-            <a href={reference}>
+            <a href={reference} target="_blank" rel="noopener noreferrer">
               <p
                 className={classNames(
                   active ? "bg-gray-500 text-gray-100" : "text-gray-200",

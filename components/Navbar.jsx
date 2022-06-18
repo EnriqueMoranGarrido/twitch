@@ -4,8 +4,21 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, Transition } from "@headlessui/react";
 
-import { BsPerson, BsSearch, BsThreeDotsVertical } from "react-icons/bs";
-import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+import {
+  BsPerson,
+  BsSearch,
+  BsThreeDotsVertical,
+  BsSun,
+  BsMoon,
+} from "react-icons/bs";
+import {
+  AiOutlineMenu,
+  AiOutlineClose,
+  AiOutlineGlobal,
+  AiOutlineSetting,
+  AiOutlineLogin,
+  AiOutlineDingding,
+} from "react-icons/ai";
 
 import Logo from "../public/assets/logo.png";
 
@@ -17,16 +30,27 @@ function classNames(...classes) {
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
+
+  const handleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
 
   const handleNav = () => {
     setNav(!nav);
   };
+
+  const itemsStyle = "hover:bg-gray-500 flex items-center w-full px-3";
+
+  const logButtonStyle =
+    "hidden lg:flex px-4 py-[6px] rounded-lg font-bold mr-2 w-[25%] items-center justify-center text-sm";
+
   return (
     <div className="fixed h-14 w-full flex flex-nowrap items-center p-4 bg-[#0e0e10] mb-[2px] z-10 text-white">
       {/* Left side */}
       <div className="flex grow items-center justify-start">
         <Link href="/">
-          <a className="flex">
+          <a className="flex" target="_blank" rel="noopener noreferrer">
             <Image
               src={Logo}
               alt="/"
@@ -171,12 +195,18 @@ const Navbar = () => {
       {/* Right side */}
       <div className=" flex grow items-center justify-end">
         <Link href="/">
-          <button className=" hidden lg:flex px-4 py-[6px] rounded-lg font-bold bg-[rgb(59,59,59)] mr-2 w-[25%] items-center justify-center">
+          <button
+            className={logButtonStyle}
+            style={{ backgroundColor: "rgb(59,59,59)" }}
+          >
             Log-In
           </button>
         </Link>
         <Link href="/">
-          <button className="hidden lg:flex px-4 py-[6px] rounded-lg font-bold bg-[#9147ff] mr-2 w-[25%]">
+          <button
+            className={logButtonStyle}
+            style={{ backgroundColor: "#9147ff" }}
+          >
             Register
           </button>
         </Link>
@@ -198,22 +228,24 @@ const Navbar = () => {
               leaveTo="transform opacity-0 scale-95"
             >
               <Menu.Items className="  origin-top-right absolute right-[5%] mt-2 w-56 rounded-md shadow-lg bg-[#0e0e10] ring-1 ring-white ring-opacity-5 focus:outline-none">
-                <div className="py-1">
-                  <Menu.Item>
-                    {({ active }) => (
-                      <a
-                        href="#"
-                        className={classNames(
-                          active
-                            ? "bg-gray-500 text-gray-100"
-                            : "text-gray-200",
-                          "block px-4 py-2 text-sm"
-                        )}
-                      >
-                        Settings
-                      </a>
-                    )}
-                  </Menu.Item>
+                <div className="py-1 flex items-center justify-left flex-col">
+                  <div className={itemsStyle}>
+                    <AiOutlineSetting size={22} />
+                    <MenuItem title={"Setings"} enable={true} />
+                  </div>
+                  <div className={itemsStyle}>
+                    <AiOutlineGlobal size={22} />
+                    <MenuItem title={"Language"} enable={true} />
+                  </div>
+                  <div className={itemsStyle} onClick={handleDarkMode}>
+                    {darkMode ? <BsMoon size={22} /> : <BsSun size={22} />}
+
+                    <MenuItem title={"Dark Mode"} enable={true} />
+                  </div>
+                  <div className={itemsStyle}>
+                    <AiOutlineLogin size={22} />
+                    <MenuItem title={"Log In"} enable={true} />
+                  </div>
                 </div>
               </Menu.Items>
             </Transition>
