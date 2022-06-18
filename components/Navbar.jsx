@@ -194,7 +194,7 @@ const Navbar = () => {
       </div>
       {/* Right side */}
       <div className=" flex grow items-center justify-end">
-        <Link href="/">
+        <Link href="/account">
           <button
             className={logButtonStyle}
             style={{ backgroundColor: "rgb(59,59,59)" }}
@@ -202,7 +202,7 @@ const Navbar = () => {
             Log-In
           </button>
         </Link>
-        <Link href="/">
+        <Link href="/account">
           <button
             className={logButtonStyle}
             style={{ backgroundColor: "#9147ff" }}
@@ -277,7 +277,7 @@ const Navbar = () => {
             <Link href="/">Top Categories</Link>
           </li>
           <li onClick={() => setNav(false)} className="p-4 text-3xl font-bold">
-            <Link href="/">Account</Link>
+            <Link href="/account">Account</Link>
           </li>
         </ul>
       </div>
