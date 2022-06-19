@@ -370,10 +370,12 @@ const Navbar = () => {
 
                       <MenuItem title={"Dark Mode"} enable={true} />
                     </div>
-                    <div className={itemsStyle}>
-                      <AiOutlineLogin size={22} />
-                      <MenuItem title={"Log In"} enable={true} />
-                    </div>
+                    <Link href="/account">
+                      <div className={itemsStyle}>
+                        <AiOutlineLogin size={22} />
+                        <MenuItem title={"Log In"} enable={true} />
+                      </div>
+                    </Link>
                   </div>
                 </Menu.Items>
               </Transition>
