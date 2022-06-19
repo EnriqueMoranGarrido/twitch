@@ -396,10 +396,10 @@ const Navbar = () => {
             <Link href="/">Home</Link>
           </li>
           <li onClick={() => setNav(false)} className={mobileMenuStyle}>
-            <Link href="/">Live Channels</Link>
+            <Link href="/#live">Live Channels</Link>
           </li>
           <li onClick={() => setNav(false)} className={mobileMenuStyle}>
-            <Link href="/">Top Categories</Link>
+            <Link href="/#Category">Top Categories</Link>
           </li>
           <li onClick={() => setNav(false)} className={mobileMenuStyle}>
             <Link href="/account">Account</Link>
